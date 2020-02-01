@@ -1,0 +1,42 @@
+.detailComponent {
+  min-height: 100vh;
+
+  .product-information {
+    ul {
+      padding-left: 20px;
+    }
+
+    ul li {
+      list-style-type: disc;
+    }
+
+    .cus-text {
+      margin-right: 10px;
+    }
+  }
+
+  .cus-mtext {
+    font-family: Montserrat-Bold;
+    text-transform: uppercase;
+    line-height: 1.6;
+    &-36 {
+      font-size: 36px;
+    }
+    &-15 {
+      font-size: 15px;
+    }
+    &-27 {
+      font-size: 27px;
+    }
+  }
+
+  .tab-content {
+    ul {
+      padding-left: 21px;
+    }
+
+    ul li {
+      list-style-type: disc;
+    }
+  }
+}

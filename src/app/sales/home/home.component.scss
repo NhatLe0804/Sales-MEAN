@@ -1,0 +1,25 @@
+.homeComponent {
+    min-height: 100vh;
+    .product {
+        .product-title{
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0 auto;
+        }
+        .product-title a:hover {
+            color: #78cccd;
+        }
+    }
+
+    .carousel-custom{
+        display: grid;
+        height: 100%;
+        .center-fit{
+            width: 100%;
+            max-height: 100vh;
+            margin: auto;
+            height: auto;
+        }
+    }
+}

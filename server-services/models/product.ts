@@ -6,9 +6,18 @@ const Product = new Schema({
     name: { type: String },
     codeProduct: { type: String },
     description: { type: String },
-    price: { type: Number },
     colour: { type: String },
-    amount: { type: String }
+    img: { type: String },
+    additionalImg: [String],
+    category: { type: String },
+    trademark: { type: String },
+    useFor: [String],
+    extraInformation: [String],
+    extraDescription: [String],
+    price: { type: Number },
+    bought: { type: Number },
+    amount: { type: Number },
+    date: { type: Date }
 }, {
     collection: 'products'
 });

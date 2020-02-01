@@ -2,7 +2,6 @@
 
 const path = require('path');
 const webpack = require('webpack');
-
 module.exports = {
   mode: 'none',
   entry: {
@@ -31,7 +30,7 @@ module.exports = {
         // Removing this will cause deprecation warnings to appear.
         test: /(\\|\/)@angular(\\|\/)core(\\|\/).+\.js$/,
         parser: { system: true },
-      },
+      }
     ]
   },
   plugins: [

@@ -1,1 +1,76 @@
-<p>home works!</p>
+<div class="homeComponent">
+    <div class="carousel-custom">
+        <ngb-carousel>
+            <ng-template ngbSlide>
+                <img class="img-fluid center-fit" src="../../../assets/img/slide/slide-1.png" alt="First slide">
+            </ng-template>
+            <ng-template ngbSlide>
+                <img class="img-fluid center-fit" src="../../../assets/img/slide/slide-2.png" alt="Second slide">
+            </ng-template>
+            <ng-template ngbSlide>
+                <img class="img-fluid center-fit" src="../../../assets/img/slide/slide-3.png" alt="Third slide">
+            </ng-template>
+        </ngb-carousel>
+    </div>
+
+    <div class="container">
+        <app-banner></app-banner>
+
+        <section class="sec-product bg0 p-b-50">
+            <div class="container">
+                <div class="p-b-32">
+                    <h3 class="ltext-105 cl5 txt-center respon1">
+                        Tổng Quan Sản Phẩm
+                    </h3>
+                </div>
+                <div class="tab01">
+                    <!-- Nav tabs --> 
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item p-b-10">
+                            <a class="nav-link active" data-toggle="tab" href="#best-seller" role="tab" (click)="activeTab(ParamsToRunQuery.TopSales)">
+                                Sản Phẩm Bán Chạy
+                            </a>
+                        </li>
+
+                        <li class="nav-item p-b-10">
+                            <a class="nav-link" data-toggle="tab" href="#new" role="tab" (click)="activeTab(ParamsToRunQuery.ProductsNewest)">
+                                Sản Phẩm Mới
+                            </a>
+                        </li>
+
+                        <li class="nav-item p-b-10">
+                            <a class="nav-link" data-toggle="tab" href="#advance" role="tab" (click)="activeTab(ParamsToRunQuery.ProductAdvance)">
+                                Cao Cấp
+                            </a>
+                        </li>
+
+                        <li class="nav-item p-b-10">
+                            <a class="nav-link" data-toggle="tab" href="#top-rate" role="tab">Nổi Bật</a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content p-t-50">
+                        <div class="tab-pane fade show active" id="best-seller" role="tabpanel">
+                            <app-watch [isShowFilterAndSearch]="false" *ngIf="currentTab === ParamsToRunQuery.TopSales" [paramsToRunQuery]="currentTab"></app-watch>
+                        </div>
+
+                        <div class="tab-pane fade" id="new" role="tabpanel">
+                            <app-watch [isShowFilterAndSearch]="false" *ngIf="currentTab === ParamsToRunQuery.ProductsNewest" [paramsToRunQuery]="currentTab"></app-watch>
+                        </div>
+
+                        <div class="tab-pane fade" id="advance" role="tabpanel">
+                            <app-watch [isShowFilterAndSearch]="false" *ngIf="currentTab === ParamsToRunQuery.ProductAdvance" [paramsToRunQuery]="currentTab"></app-watch>
+                        </div>
+
+                        <!-- <div class="tab-pane fade" id="top-rate" role="tabpanel">
+                            <app-watch [isShowFilterAndSearch]="false"></app-watch>
+                        </div> -->
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+</div>
