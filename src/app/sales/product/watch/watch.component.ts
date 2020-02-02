@@ -39,7 +39,7 @@ export class WatchComponent extends BaseComponent implements OnInit {
         });
         break;
       case ParamsToRunQuery.ProductAdvance:
-        this.productService.getProductsNewest().subscribe((response: WatchModel[]) => {
+        this.productService.getProductAdvance().subscribe((response: WatchModel[]) => {
           this.products = response;
         }, (err) => {
           console.log(err);

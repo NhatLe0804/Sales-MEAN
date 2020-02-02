@@ -49,8 +49,11 @@
                             {{productDetail?.name}}
                         </h1>
                         <p class="cus-mtext-27 p-b-10 cl2">
-                            {{productDetail?.price}}
+                            {{productDetail?.price | number}} <span>&#8363;</span>
                         </p>
+                        <span class="cus-mtext-15 cus-text">
+                            <b>Mã:</b> {{productDetail?.codeProduct}}
+                        </span>
                         <div class="p-b-10">
                             <span class="cus-mtext-15 cus-text">
                                 <b>Thương Hiệu:</b> {{productDetail?.trademark}}
@@ -58,12 +61,9 @@
                             <span class="cus-mtext-15 cus-text">
                                 <b>Loại:</b> {{productDetail?.category}}
                             </span>
-                            <span class="cus-mtext-15 cus-text">
-                                <b>Mã:</b> {{productDetail?.codeProduct}}
-                            </span>
                         </div>
                         <h2 class="cus-mtext-15 p-b-10">Bộ sản phẩm gồm:</h2>
-                        <div class="stext-102 cl3">
+                        <div class="cl3">
                             <ul *ngIf="productDetail.extraInformation.length > 0">
                                 <li *ngFor="let extraInfo of productDetail.extraInformation" class="cus-mtext-15">
                                     {{extraInfo}}
@@ -88,16 +88,15 @@
                                         </div>
                                     </div>
 
-                                    <button
-                                        class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-                                        Add to cart
+                                    <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+                                        Thêm Vào Giỏ
                                     </button>
                                 </div>
                             </div>
                         </div>
 
-                        <!--  -->
-                        <div class="flex-w flex-m p-t-40 respon7">
+                        <hr style="width: 30%;" />
+                        <div class="flex-w flex-m">
                             <div class="flex-m bor9 p-r-10 m-r-11">
                                 <a href="#"
                                     class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100"
@@ -139,11 +138,11 @@
                         <!-- - -->
                         <div class="tab-pane fade show active" id="description" role="tabpanel">
                             <div class="how-pos2 p-lr-15-md">
-                                <p class="stext-102 cl6">
+                                <p class="cus-stext-17 cl6">
                                     {{productDetail?.description}}
                                 </p>
                                 <h2 class="cus-mtext-20 p-t-23 p-b-14">Đặc điểm kỹ thuật</h2>
-                                <div class="stext-102 cl6">
+                                <div class="cus-stext-17 cl6">
                                     <ul *ngIf="productDetail.extraDescription.length > 0">
                                         <li *ngFor="let extraDes of productDetail.extraDescription">
                                             {{extraDes}}

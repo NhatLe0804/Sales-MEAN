@@ -25,7 +25,7 @@ let checkExistMenu = setInterval(function () {
     if ($('.container-menu-desktop').length && $('.wrap-menu-desktop').length) {
 
         /*==================================================================
-        [ Fixed Header ]*/  
+        [ Fixed Header ]*/
         let headerDesktop = $('.container-menu-desktop');
         let wrapMenu = $('.wrap-menu-desktop');
         let posWrapHeader = 0;
@@ -106,6 +106,8 @@ let checkExistMenu = setInterval(function () {
 
 /*==================================================================
 [ Show / hide modal search ]*/
+
+
 $('.js-show-modal-search').on('click', function () {
     $('.modal-search-header').addClass('show-modal-search');
     $(this).css('opacity', '0');
@@ -122,67 +124,34 @@ $('.container-search-header').on('click', function (e) {
 
 
 /*==================================================================
-[ Isotope ]*/
-// let $topeContainer = $('.isotope-grid');
-// let $filter = $('.filter-tope-group');
-
-// // filter items on button click
-// $filter.each(function () {
-//     $filter.on('click', 'button', function () {
-//         let filterValue = $(this).attr('data-filter');
-//         $topeContainer.isotope({ filter: filterValue });
-//     });
-
-// });
-
-// // init Isotope
-// $(window).on('load', function () {
-//     let $grid = $topeContainer.each(function () {
-//         $(this).isotope({
-//             itemSelector: '.isotope-item',
-//             layoutMode: 'fitRows',
-//             percentPosition: true,
-//             animationEngine: 'best-available',
-//             masonry: {
-//                 columnWidth: '.isotope-item'
-//             }
-//         });
-//     });
-// });
-
-// let isotopeButton = $('.filter-tope-group button');
-
-// $(isotopeButton).each(function () {
-//     $(this).on('click', function () {
-//         for (let i = 0; i < isotopeButton.length; i++) {
-//             $(isotopeButton[i]).removeClass('how-active1');
-//         }
-
-//         $(this).addClass('how-active1');
-//     });
-// });
-
-/*==================================================================
 [ Filter / Search product ]*/
-$('.js-show-filter').on('click', function () {
-    $(this).toggleClass('show-filter');
-    $('.panel-filter').slideToggle(400);
 
-    if ($('.js-show-search').hasClass('show-search')) {
-        $('.js-show-search').removeClass('show-search');
-        $('.panel-search').slideUp(400);
+let checkExistFilterAndSearch = setInterval(function () {
+
+    if ($('.js-show-filter').length > 0 && $('.js-show-search').length > 0) {
+        $('.js-show-filter').on('click', function () {
+            $(this).toggleClass('show-filter');
+            $('.panel-filter').slideToggle(400);
+
+            if ($('.js-show-search').hasClass('show-search')) {
+                $('.js-show-search').removeClass('show-search');
+                $('.panel-search').slideUp(400);
+            }
+        });
+
+        $('.js-show-search').on('click', function () {
+            $(this).toggleClass('show-search');
+            $('.panel-search').slideToggle(400);
+
+            if ($('.js-show-filter').hasClass('show-filter')) {
+                $('.js-show-filter').removeClass('show-filter');
+                $('.panel-filter').slideUp(400);
+            }
+        });
+        clearInterval(checkExistFilterAndSearch);
     }
-});
+}, 300);
 
-$('.js-show-search').on('click', function () {
-    $(this).toggleClass('show-search');
-    $('.panel-search').slideToggle(400);
-
-    if ($('.js-show-filter').hasClass('show-filter')) {
-        $('.js-show-filter').removeClass('show-filter');
-        $('.panel-filter').slideUp(400);
-    }
-});
 
 
 

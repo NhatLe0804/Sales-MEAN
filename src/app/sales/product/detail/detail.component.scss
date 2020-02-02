@@ -1,6 +1,10 @@
 .detailComponent {
   min-height: 100vh;
 
+  .bread-crumb .stext-109 {
+    font-size: 16px;
+  }
+
   .product-information {
     ul {
       padding-left: 20px;
@@ -13,6 +17,10 @@
     .cus-text {
       margin-right: 10px;
     }
+
+    button.stext-101 {
+      font-family: "Montserrat", sans-serif;
+    }
   }
 
   .cus-mtext {
@@ -24,9 +32,18 @@
     }
     &-15 {
       font-size: 15px;
+      line-height: 2.8;
     }
     &-27 {
       font-size: 27px;
+    }
+  }
+
+  .cus-stext {
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.7;
+    &-17 {
+      font-size: 17px;
     }
   }
 
@@ -38,5 +55,13 @@
     ul li {
       list-style-type: disc;
     }
+  }
+
+ .slick-next:before, .slick-prev:before { 
+   color: #000 !important;
+ }
+
+  .tab01 .nav-link {
+    font-size: 20px;
   }
 }
