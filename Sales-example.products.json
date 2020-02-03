@@ -1,0 +1,255 @@
+{ 
+    "_id" : ObjectId("5e34edfea5d12f0a41efd4f8"), 
+    "additionalImg" : [
+        "../../../../assets/img/products/product-detail.png", 
+        "../../../../assets/img/products/product-detail-2.png"
+    ], 
+    "useFor" : [
+        "Men"
+    ], 
+    "extraInformation" : [
+        "1 vòng đeo tay G-SHOCK.", 
+        "1 hộp giấy + 1 hộp thiếc (tùy sản phẩm).", 
+        "Thẻ bảo hành 5 năm & 18 tháng cho Pin.", 
+        "Miễn phí vận chuyển toàn quốc.", 
+        "Sách hướng dẫn sử dụng các thứ tiếng.", 
+        "Hỗ trợ hướng dẫn sử dụng và tư vấn sản phẩm trọn đời."
+    ], 
+    "extraDescription" : [
+        "Vật liệu vỏ / gờ: Nhựa / Thép không gỉ", 
+        "Dây đeo bằng nhựa", 
+        "Chống va đập", 
+        "Khả năng chống nước ở độ sâu 100 mét", 
+        "Đèn LED (Chiếu sáng cực mạnh) Công tắc đèn tự động, thời lượng chiếu sáng có thể lựa chọn (1,5 giây hoặc 3 giây), phát sáng sau"
+    ], 
+    "name" : "MSG-400G-1A2", 
+    "amount" : NumberInt(300), 
+    "codeProduct" : "MSG-400G-1A2", 
+    "colour" : "Red", 
+    "description" : "Từ dòng đồng hồ BABY-G G-MS dành cho phụ nữ hiện đại năng động và tinh tế xuất hiện một bộ mẫu chọn lọc có màu sắc sống động. Các bộ phận kim loại màu vàng và hồng vàng được sử dụng phóng khoáng tạo nên một bộ sưu tập mẫu tăng thêm nét duyên sáng cho cổ tay của người phụ nữ. Kim loại cũng được dùng để mạ vòng bao mặt đồng hồ, vòng dây đeo và chốt. Hình thức giống như thiết bị kim loại rất đẹp phù hợp với phụ nữ. Với chức năng thông minh, các mẫu này có chức năng Dual Dial World Time (Giờ thế giới hai vòng quay) hiển thị thời gian hiện tại ở múi giờ khác bằng cách sử dụng mặt số nhỏ tại vị trí 9 giờ.", 
+    "category" : "G-SHOCK", 
+    "trademark" : "G-SHOCK", 
+    "price" : NumberInt(4985000), 
+    "bought" : NumberInt(85), 
+    "date" : ISODate("2019-09-04T17:00:00.000+0000"), 
+    "img" : "../../../../assets/img/products/dong-ho-gshock.png"
+}
+{ 
+    "_id" : ObjectId("5e354419a5d12f0a41efd508"), 
+    "additionalImg" : [
+        "../../../../assets/img/products/product-detail.png", 
+        "../../../../assets/img/products/product-detail-2.png"
+    ], 
+    "useFor" : [
+        "Women", 
+        "Men", 
+        "Couple"
+    ], 
+    "extraInformation" : [
+        "1 vòng đeo tay G-SHOCK.", 
+        "1 hộp giấy + 1 hộp thiếc (tùy sản phẩm).", 
+        "Thẻ bảo hành 5 năm & 18 tháng cho Pin.", 
+        "Miễn phí vận chuyển toàn quốc.", 
+        "Sách hướng dẫn sử dụng các thứ tiếng.", 
+        "Hỗ trợ hướng dẫn sử dụng và tư vấn sản phẩm trọn đời."
+    ], 
+    "extraDescription" : [
+        "Vật liệu vỏ / gờ: Nhựa / Thép không gỉ", 
+        "Dây đeo bằng nhựa", 
+        "Chống va đập", 
+        "Khả năng chống nước ở độ sâu 100 mét", 
+        "Đèn LED (Chiếu sáng cực mạnh) Công tắc đèn tự động, thời lượng chiếu sáng có thể lựa chọn (1,5 giây hoặc 3 giây), phát sáng sau"
+    ], 
+    "name" : "MSG-400G-CC", 
+    "amount" : NumberInt(200), 
+    "codeProduct" : "MSG-400G-CC", 
+    "colour" : "Red", 
+    "description" : "Từ dòng đồng hồ BABY-G G-MS dành cho phụ nữ hiện đại năng động và tinh tế xuất hiện một bộ mẫu chọn lọc có màu sắc sống động. Các bộ phận kim loại màu vàng và hồng vàng được sử dụng phóng khoáng tạo nên một bộ sưu tập mẫu tăng thêm nét duyên sáng cho cổ tay của người phụ nữ. Kim loại cũng được dùng để mạ vòng bao mặt đồng hồ, vòng dây đeo và chốt. Hình thức giống như thiết bị kim loại rất đẹp phù hợp với phụ nữ. Với chức năng thông minh, các mẫu này có chức năng Dual Dial World Time (Giờ thế giới hai vòng quay) hiển thị thời gian hiện tại ở múi giờ khác bằng cách sử dụng mặt số nhỏ tại vị trí 9 giờ.", 
+    "category" : "G-SHOCK", 
+    "trademark" : "G-SHOCK", 
+    "price" : NumberInt(1850000), 
+    "bought" : NumberInt(90), 
+    "date" : ISODate("2019-07-04T17:00:00.000+0000"), 
+    "img" : "../../../../assets/img/products/dong-ho-gshock.png"
+}
+{ 
+    "_id" : ObjectId("5e354419a5d12f0a41efd509"), 
+    "additionalImg" : [
+        "../../../../assets/img/products/product-detail.png", 
+        "../../../../assets/img/products/product-detail-2.png"
+    ], 
+    "useFor" : [
+        "Women", 
+        "Men"
+    ], 
+    "extraInformation" : [
+        "1 vòng đeo tay G-SHOCK.", 
+        "1 hộp giấy + 1 hộp thiếc (tùy sản phẩm).", 
+        "Thẻ bảo hành 5 năm & 18 tháng cho Pin.", 
+        "Miễn phí vận chuyển toàn quốc.", 
+        "Sách hướng dẫn sử dụng các thứ tiếng.", 
+        "Hỗ trợ hướng dẫn sử dụng và tư vấn sản phẩm trọn đời."
+    ], 
+    "extraDescription" : [
+        "Vật liệu vỏ / gờ: Nhựa / Thép không gỉ", 
+        "Dây đeo bằng nhựa", 
+        "Chống va đập", 
+        "Khả năng chống nước ở độ sâu 100 mét", 
+        "Đèn LED (Chiếu sáng cực mạnh) Công tắc đèn tự động, thời lượng chiếu sáng có thể lựa chọn (1,5 giây hoặc 3 giây), phát sáng sau"
+    ], 
+    "name" : "MSG-400G-CCD", 
+    "amount" : NumberInt(100), 
+    "codeProduct" : "MSG-400G-CCD", 
+    "colour" : "Red", 
+    "description" : "Từ dòng đồng hồ BABY-G G-MS dành cho phụ nữ hiện đại năng động và tinh tế xuất hiện một bộ mẫu chọn lọc có màu sắc sống động. Các bộ phận kim loại màu vàng và hồng vàng được sử dụng phóng khoáng tạo nên một bộ sưu tập mẫu tăng thêm nét duyên sáng cho cổ tay của người phụ nữ. Kim loại cũng được dùng để mạ vòng bao mặt đồng hồ, vòng dây đeo và chốt. Hình thức giống như thiết bị kim loại rất đẹp phù hợp với phụ nữ. Với chức năng thông minh, các mẫu này có chức năng Dual Dial World Time (Giờ thế giới hai vòng quay) hiển thị thời gian hiện tại ở múi giờ khác bằng cách sử dụng mặt số nhỏ tại vị trí 9 giờ.", 
+    "category" : "G-SHOCK", 
+    "trademark" : "G-SHOCK", 
+    "price" : NumberInt(5850000), 
+    "bought" : NumberInt(10), 
+    "date" : ISODate("2019-07-04T17:00:00.000+0000"), 
+    "img" : "../../../../assets/img/products/dong-ho-gshock.png"
+}
+{ 
+    "_id" : ObjectId("5e354419a5d12f0a41efd50a"), 
+    "additionalImg" : [
+        "../../../../assets/img/products/product-detail.png", 
+        "../../../../assets/img/products/product-detail-2.png"
+    ], 
+    "useFor" : [
+        "Women"
+    ], 
+    "extraInformation" : [
+        "1 vòng đeo tay G-SHOCK.", 
+        "1 hộp giấy + 1 hộp thiếc (tùy sản phẩm).", 
+        "Thẻ bảo hành 5 năm & 18 tháng cho Pin.", 
+        "Miễn phí vận chuyển toàn quốc.", 
+        "Sách hướng dẫn sử dụng các thứ tiếng.", 
+        "Hỗ trợ hướng dẫn sử dụng và tư vấn sản phẩm trọn đời."
+    ], 
+    "extraDescription" : [
+        "Vật liệu vỏ / gờ: Nhựa / Thép không gỉ", 
+        "Dây đeo bằng nhựa", 
+        "Chống va đập", 
+        "Khả năng chống nước ở độ sâu 100 mét", 
+        "Đèn LED (Chiếu sáng cực mạnh) Công tắc đèn tự động, thời lượng chiếu sáng có thể lựa chọn (1,5 giây hoặc 3 giây), phát sáng sau"
+    ], 
+    "name" : "MSG-400G-dd", 
+    "amount" : NumberInt(50), 
+    "codeProduct" : "MSG-400G-dd", 
+    "colour" : "Red", 
+    "description" : "Từ dòng đồng hồ BABY-G G-MS dành cho phụ nữ hiện đại năng động và tinh tế xuất hiện một bộ mẫu chọn lọc có màu sắc sống động. Các bộ phận kim loại màu vàng và hồng vàng được sử dụng phóng khoáng tạo nên một bộ sưu tập mẫu tăng thêm nét duyên sáng cho cổ tay của người phụ nữ. Kim loại cũng được dùng để mạ vòng bao mặt đồng hồ, vòng dây đeo và chốt. Hình thức giống như thiết bị kim loại rất đẹp phù hợp với phụ nữ. Với chức năng thông minh, các mẫu này có chức năng Dual Dial World Time (Giờ thế giới hai vòng quay) hiển thị thời gian hiện tại ở múi giờ khác bằng cách sử dụng mặt số nhỏ tại vị trí 9 giờ.", 
+    "category" : "G-SHOCK", 
+    "trademark" : "G-SHOCK", 
+    "price" : NumberInt(3000000), 
+    "bought" : NumberInt(100), 
+    "date" : ISODate("2019-06-09T17:00:00.000+0000"), 
+    "img" : "../../../../assets/img/products/dong-ho-gshock.png"
+}
+{ 
+    "_id" : ObjectId("5e354419a5d12f0a41efd50b"), 
+    "additionalImg" : [
+        "../../../../assets/img/products/product-detail.png", 
+        "../../../../assets/img/products/product-detail-2.png"
+    ], 
+    "useFor" : [
+        "Men"
+    ], 
+    "extraInformation" : [
+        "1 vòng đeo tay G-SHOCK.", 
+        "1 hộp giấy + 1 hộp thiếc (tùy sản phẩm).", 
+        "Thẻ bảo hành 5 năm & 18 tháng cho Pin.", 
+        "Miễn phí vận chuyển toàn quốc.", 
+        "Sách hướng dẫn sử dụng các thứ tiếng.", 
+        "Hỗ trợ hướng dẫn sử dụng và tư vấn sản phẩm trọn đời."
+    ], 
+    "extraDescription" : [
+        "Vật liệu vỏ / gờ: Nhựa / Thép không gỉ", 
+        "Dây đeo bằng nhựa", 
+        "Chống va đập", 
+        "Khả năng chống nước ở độ sâu 100 mét", 
+        "Đèn LED (Chiếu sáng cực mạnh) Công tắc đèn tự động, thời lượng chiếu sáng có thể lựa chọn (1,5 giây hoặc 3 giây), phát sáng sau"
+    ], 
+    "name" : "MSG-400G-KD", 
+    "amount" : NumberInt(50), 
+    "codeProduct" : "MSG-400G-KD", 
+    "colour" : "Red", 
+    "description" : "Từ dòng đồng hồ BABY-G G-MS dành cho phụ nữ hiện đại năng động và tinh tế xuất hiện một bộ mẫu chọn lọc có màu sắc sống động. Các bộ phận kim loại màu vàng và hồng vàng được sử dụng phóng khoáng tạo nên một bộ sưu tập mẫu tăng thêm nét duyên sáng cho cổ tay của người phụ nữ. Kim loại cũng được dùng để mạ vòng bao mặt đồng hồ, vòng dây đeo và chốt. Hình thức giống như thiết bị kim loại rất đẹp phù hợp với phụ nữ. Với chức năng thông minh, các mẫu này có chức năng Dual Dial World Time (Giờ thế giới hai vòng quay) hiển thị thời gian hiện tại ở múi giờ khác bằng cách sử dụng mặt số nhỏ tại vị trí 9 giờ.", 
+    "category" : "G-SHOCK", 
+    "trademark" : "G-SHOCK", 
+    "price" : NumberInt(9000000), 
+    "bought" : NumberInt(5), 
+    "date" : ISODate("2019-04-04T17:00:00.000+0000"), 
+    "img" : "../../../../assets/img/products/dong-ho-gshock.png"
+}
+{ 
+    "_id" : ObjectId("5e354419a5d12f0a41efd50c"), 
+    "additionalImg" : [
+        "../../../../assets/img/products/product-detail.png", 
+        "../../../../assets/img/products/product-detail-2.png"
+    ], 
+    "useFor" : [
+        "Couple"
+    ], 
+    "extraInformation" : [
+        "1 vòng đeo tay G-SHOCK.", 
+        "1 hộp giấy + 1 hộp thiếc (tùy sản phẩm).", 
+        "Thẻ bảo hành 5 năm & 18 tháng cho Pin.", 
+        "Miễn phí vận chuyển toàn quốc.", 
+        "Sách hướng dẫn sử dụng các thứ tiếng.", 
+        "Hỗ trợ hướng dẫn sử dụng và tư vấn sản phẩm trọn đời."
+    ], 
+    "extraDescription" : [
+        "Vật liệu vỏ / gờ: Nhựa / Thép không gỉ", 
+        "Dây đeo bằng nhựa", 
+        "Chống va đập", 
+        "Khả năng chống nước ở độ sâu 100 mét", 
+        "Đèn LED (Chiếu sáng cực mạnh) Công tắc đèn tự động, thời lượng chiếu sáng có thể lựa chọn (1,5 giây hoặc 3 giây), phát sáng sau"
+    ], 
+    "name" : "BA-112-1ADR", 
+    "amount" : NumberInt(150), 
+    "codeProduct" : "BA-112-1ADR", 
+    "colour" : "Red", 
+    "description" : "Từ dòng đồng hồ BABY-G G-MS dành cho phụ nữ hiện đại năng động và tinh tế xuất hiện một bộ mẫu chọn lọc có màu sắc sống động. Các bộ phận kim loại màu vàng và hồng vàng được sử dụng phóng khoáng tạo nên một bộ sưu tập mẫu tăng thêm nét duyên sáng cho cổ tay của người phụ nữ. Kim loại cũng được dùng để mạ vòng bao mặt đồng hồ, vòng dây đeo và chốt. Hình thức giống như thiết bị kim loại rất đẹp phù hợp với phụ nữ. Với chức năng thông minh, các mẫu này có chức năng Dual Dial World Time (Giờ thế giới hai vòng quay) hiển thị thời gian hiện tại ở múi giờ khác bằng cách sử dụng mặt số nhỏ tại vị trí 9 giờ.", 
+    "category" : "G-SHOCK", 
+    "trademark" : "G-SHOCK", 
+    "price" : NumberInt(90000000), 
+    "bought" : NumberInt(10), 
+    "date" : ISODate("2019-07-03T17:00:00.000+0000"), 
+    "img" : "../../../../assets/img/products/dong-ho-gshock.png"
+}
+{ 
+    "_id" : ObjectId("5e354419a5d12f0a41efd50d"), 
+    "additionalImg" : [
+        "../../../../assets/img/products/product-detail.png", 
+        "../../../../assets/img/products/product-detail-2.png"
+    ], 
+    "useFor" : [
+        "Men"
+    ], 
+    "extraInformation" : [
+        "1 vòng đeo tay G-SHOCK.", 
+        "1 hộp giấy + 1 hộp thiếc (tùy sản phẩm).", 
+        "Thẻ bảo hành 5 năm & 18 tháng cho Pin.", 
+        "Miễn phí vận chuyển toàn quốc.", 
+        "Sách hướng dẫn sử dụng các thứ tiếng.", 
+        "Hỗ trợ hướng dẫn sử dụng và tư vấn sản phẩm trọn đời."
+    ], 
+    "extraDescription" : [
+        "Vật liệu vỏ / gờ: Nhựa / Thép không gỉ", 
+        "Dây đeo bằng nhựa", 
+        "Chống va đập", 
+        "Khả năng chống nước ở độ sâu 100 mét", 
+        "Đèn LED (Chiếu sáng cực mạnh) Công tắc đèn tự động, thời lượng chiếu sáng có thể lựa chọn (1,5 giây hoặc 3 giây), phát sáng sau"
+    ], 
+    "name" : "BA-112-1ADRAAA", 
+    "amount" : NumberInt(5), 
+    "codeProduct" : "BA-112-1ADRAAA", 
+    "colour" : "Red", 
+    "description" : "Từ dòng đồng hồ BABY-G G-MS dành cho phụ nữ hiện đại năng động và tinh tế xuất hiện một bộ mẫu chọn lọc có màu sắc sống động. Các bộ phận kim loại màu vàng và hồng vàng được sử dụng phóng khoáng tạo nên một bộ sưu tập mẫu tăng thêm nét duyên sáng cho cổ tay của người phụ nữ. Kim loại cũng được dùng để mạ vòng bao mặt đồng hồ, vòng dây đeo và chốt. Hình thức giống như thiết bị kim loại rất đẹp phù hợp với phụ nữ. Với chức năng thông minh, các mẫu này có chức năng Dual Dial World Time (Giờ thế giới hai vòng quay) hiển thị thời gian hiện tại ở múi giờ khác bằng cách sử dụng mặt số nhỏ tại vị trí 9 giờ.", 
+    "category" : "G-SHOCK", 
+    "trademark" : "G-SHOCK", 
+    "price" : NumberInt(40000000), 
+    "bought" : NumberInt(2), 
+    "date" : ISODate("2019-02-04T17:00:00.000+0000"), 
+    "img" : "../../../../assets/img/products/dong-ho-gshock.png"
+}
