@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { WatchModel } from '../sales/models/watch.model';
+import { Filter } from '../sales/models/filter.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -33,6 +34,10 @@ export class ProductService {
 
   getProductAdvance(): Observable<WatchModel[]> {
     return this.httpClient.get<WatchModel[]>('/api/products-advance');
+  }
+
+  getProductsByFilter(filter: Filter): Observable<WatchModel[]> {
+    return this.httpClient.post<WatchModel[]>('/api/filter', filter);
   }
 
 }

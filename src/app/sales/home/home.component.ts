@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { BaseComponent } from '../base/base.model';
 import { StateService } from '../../services/state.service';
-import { ParamsToRunQuery } from '../models/params-to-run-query.enum';
+import { ParamsToFilter } from '../models/params-to-filter.enum';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,8 +10,8 @@ import { ParamsToRunQuery } from '../models/params-to-run-query.enum';
   encapsulation: ViewEncapsulation.Emulated
 })
 export class HomeComponent extends BaseComponent implements OnInit {
-  currentTab = ParamsToRunQuery.TopSales;
-  ParamsToRunQuery = ParamsToRunQuery;
+  currentTab = ParamsToFilter.TopSales;
+  ParamsToFilter = ParamsToFilter;
   constructor(carouselConfig: NgbCarouselConfig, stateService: StateService) {
     super(stateService, false);
     carouselConfig.interval = 100000;
@@ -23,7 +23,7 @@ export class HomeComponent extends BaseComponent implements OnInit {
 
   }
 
-  activeTab(currentTab: ParamsToRunQuery) {
+  activeTab(currentTab: ParamsToFilter) {
     this.currentTab = currentTab;
   }
 

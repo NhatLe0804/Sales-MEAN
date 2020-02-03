@@ -2,7 +2,8 @@
 
 import { Request, Response, NextFunction } from 'express';
 import Product from './models/product';
-
+import { Filter } from '../src/app/sales/models/filter.model';
+import { ParamsToFilter } from '../src/app/sales/models/params-to-filter.enum';
 // tslint:disable-next-line:prefer-const
 export class ProductRoute {
   productRoute(app): void {
@@ -68,6 +69,57 @@ export class ProductRoute {
         res.status(200).json(data);
       });
     });
+
+    //
+    app.route('/api/filter').post((req: Request, res: Response, next: NextFunction) => {
+      const filterObj = this.buildQueryDynamic(req.body);
+      console.log(filterObj);
+      const filterModel = Product.find(filterObj.find);
+
+      if (filterObj.sort) {
+        filterModel.sort(filterObj.sort);
+      }
+      filterModel.exec((error, data) => {
+        if (error) {
+          return next(error.message);
+        }
+        res.status(200).json(data);
+      });
+    });
+  }
+
+
+
+  private buildQueryDynamic(filterParams: Filter) {
+    // const productModel = Product;
+    const filterObj: { [k: string]: any } = {};
+    if (filterParams.findByGender) {
+      filterObj.find = { useFor: filterParams.findByGender };
+    } else {
+      filterObj.find = {};
+    }
+    if (filterParams.sortByOthers) {
+      switch (filterParams.sortByOthers) {
+        case ParamsToFilter.Ascending:
+          filterObj.sort = { price: 1 };
+          break;
+        case ParamsToFilter.Descending:
+          filterObj.sort = { price: -1 };
+          break;
+        case ParamsToFilter.Newest:
+          filterObj.sort = { date: -1 };
+          break;
+        case ParamsToFilter.Popular:
+          filterObj.sort = { bought: -1 };
+          break;
+        default:
+          break;
+      }
+    }
+    if (filterParams.byColor) {
+      filterObj.find = { colour: { $all: filterParams.byColor } };
+    }
+    return filterObj;
   }
 }
 

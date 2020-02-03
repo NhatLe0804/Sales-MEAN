@@ -9,8 +9,6 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BannerComponent } from './shared/banner/banner.component';
-import { FilterComponent } from './shared/filter/filter.component';
-import { SearchComponent } from './shared/search/search.component';
 import { DetailComponent } from './sales/product/detail/detail.component';
 import { PagenotfoundComponent } from './shared/pagenotfound/pagenotfound.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
@@ -26,8 +24,6 @@ import { CustomHttpInterceptorService } from './services/http-interceptor.servic
     NavbarComponent,
     FooterComponent,
     BannerComponent,
-    FilterComponent,
-    SearchComponent,
     DetailComponent,
     PagenotfoundComponent,
     BlogComponent,
