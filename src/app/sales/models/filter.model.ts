@@ -1,7 +1,6 @@
 
 export class Filter {
-  findByGender: string;
+  find: { [k: string]: any } = {};
   byColor: string[];
-  sortByPrice: number[];
   sortByOthers: string;
 }

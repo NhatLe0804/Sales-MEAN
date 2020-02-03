@@ -1,4 +1,4 @@
-export enum ParamsToFilter {
+export enum ParamsForQuery {
   TopSales = 'Top Sales',
   ProductsNewest = 'Products Newest',
   ProductAdvance = 'Product Advance',
@@ -10,6 +10,7 @@ export enum ParamsToFilter {
   Descending = 'Descending',
   Newest = 'Newest',
   Popular = 'Popular',
+  Price = 'Price'
 }
 
 export enum Color {

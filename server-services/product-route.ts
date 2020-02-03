@@ -3,7 +3,7 @@
 import { Request, Response, NextFunction } from 'express';
 import Product from './models/product';
 import { Filter } from '../src/app/sales/models/filter.model';
-import { ParamsToFilter } from '../src/app/sales/models/params-to-filter.enum';
+import { ParamsForQuery } from '../src/app/sales/models/params-to-filter.enum';
 // tslint:disable-next-line:prefer-const
 export class ProductRoute {
   productRoute(app): void {
@@ -72,17 +72,20 @@ export class ProductRoute {
 
     //
     app.route('/api/filter').post((req: Request, res: Response, next: NextFunction) => {
-      const filterObj = this.buildQueryDynamic(req.body);
-      console.log(filterObj);
-      const filterModel = Product.find(filterObj.find);
 
-      if (filterObj.sort) {
-        filterModel.sort(filterObj.sort);
+      const queryDynamic = this.buildQueryDynamic(req.body);
+      console.log(queryDynamic);
+      const filterModel = Product.find(queryDynamic.find);
+
+      if (queryDynamic.sort) {
+        filterModel.sort(queryDynamic.sort);
       }
       filterModel.exec((error, data) => {
         if (error) {
+          console.log('loi~');
           return next(error.message);
         }
+        console.log(data);
         res.status(200).json(data);
       });
     });
@@ -91,25 +94,26 @@ export class ProductRoute {
 
 
   private buildQueryDynamic(filterParams: Filter) {
-    // const productModel = Product;
+
     const filterObj: { [k: string]: any } = {};
-    if (filterParams.findByGender) {
-      filterObj.find = { useFor: filterParams.findByGender };
-    } else {
-      filterObj.find = {};
+    filterObj.find = {};  // use for get all products
+
+    if (filterParams.find) {
+      filterObj.find = filterParams.find;
     }
+
     if (filterParams.sortByOthers) {
       switch (filterParams.sortByOthers) {
-        case ParamsToFilter.Ascending:
+        case ParamsForQuery.Ascending:
           filterObj.sort = { price: 1 };
           break;
-        case ParamsToFilter.Descending:
+        case ParamsForQuery.Descending:
           filterObj.sort = { price: -1 };
           break;
-        case ParamsToFilter.Newest:
+        case ParamsForQuery.Newest:
           filterObj.sort = { date: -1 };
           break;
-        case ParamsToFilter.Popular:
+        case ParamsForQuery.Popular:
           filterObj.sort = { bought: -1 };
           break;
         default:
@@ -117,6 +121,7 @@ export class ProductRoute {
       }
     }
     if (filterParams.byColor) {
+      // $all use for search multi value
       filterObj.find = { colour: { $all: filterParams.byColor } };
     }
     return filterObj;

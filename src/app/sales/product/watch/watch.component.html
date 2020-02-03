@@ -5,15 +5,15 @@
                 Tất Cả
             </button>
 
-            <button class="cus-stext-301 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" (click)="excuteFilter(ParamsToFilter.ForMen)">
+            <button class="cus-stext-301 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" (click)="excuteFilter(ParamsForQuery.ForMen)">
                 Cho Nam
             </button>
 
-            <button class="cus-stext-301 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" (click)="excuteFilter(ParamsToFilter.ForWomen)">
+            <button class="cus-stext-301 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" (click)="excuteFilter(ParamsForQuery.ForWomen)">
                 Cho Nữ
             </button>
 
-            <button class="cus-stext-301 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" (click)="excuteFilter(ParamsToFilter.ForCouple)">
+            <button class="cus-stext-301 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" (click)="excuteFilter(ParamsForQuery.ForCouple)">
                 Cặp Đôi
             </button>
         </div>
@@ -50,27 +50,27 @@
 
                     <ul>
                         <li class="p-b-6">
-                            <a href="#" class="filter-link cus-stext-106 trans-04" (click)="excuteFilter(ParamsToFilter.Popular)">
+                            <span class="filter-link cus-stext-106 trans-04" (click)="excuteFilter(ParamsForQuery.Popular)">
                               Phổ Biến
-                            </a>
+                            </span>
                         </li>
 
                         <li class="p-b-6">
-                            <a href="#" class="filter-link cus-stext-106 trans-04 filter-link-active" (click)="excuteFilter(ParamsToFilter.Newest)">
+                            <span class="filter-link cus-stext-106 trans-04 filter-link-active" (click)="excuteFilter(ParamsForQuery.Newest)">
                                 Mới Nhất
-                            </a>
+                            </span>
                         </li>
 
                         <li class="p-b-6">
-                            <a href="#" class="filter-link cus-stext-106 trans-04" (click)="excuteFilter(ParamsToFilter.Ascending)">
+                            <span class="filter-link cus-stext-106 trans-04" (click)="excuteFilter(ParamsForQuery.Ascending)">
                                 Giá: Thấp Đến Cao
-                            </a>
+                            </span>
                         </li>
 
                         <li class="p-b-6">
-                            <a href="#" class="filter-link cus-stext-106 trans-04" (click)="excuteFilter(ParamsToFilter.Descending)">
+                            <span class="filter-link cus-stext-106 trans-04" (click)="excuteFilter(ParamsForQuery.Descending)">
                               Giá: Cao Xuống Thấp
-                            </a>
+                            </span>
                         </li>
                     </ul>
                 </div>
@@ -82,33 +82,32 @@
 
                     <ul>
                         <li class="p-b-6">
-                            <a href="#" class="filter-link cus-stext-106 trans-04 filter-link-active">
+                            <span class="filter-link cus-stext-106 trans-04 filter-link-active">
                                 Tất cả
-                            </a>
+                            </span>
+                        </li>
+                        <li class="p-b-6">
+                            <span class="filter-link cus-stext-106 trans-04" (click)="priceRange = [0,3000000]; excuteFilter(ParamsForQuery.Price)">
+                                0 - 3.000.000
+                            </span>
                         </li>
 
                         <li class="p-b-6">
-                            <a href="#" class="filter-link cus-stext-106 trans-04">
-                                1.000.000 - 3.000.000
-                            </a>
-                        </li>
-
-                        <li class="p-b-6">
-                            <a href="#" class="filter-link cus-stext-106 trans-04">
+                            <span class="filter-link cus-stext-106 trans-04" (click)="priceRange = [3000000,5000000]; excuteFilter(ParamsForQuery.Price)">
                                 3.000.000 - 5.000.000
-                            </a>
+                            </span>
                         </li>
 
                         <li class="p-b-6">
-                            <a href="#" class="filter-link cus-stext-106 trans-04">
+                            <span class="filter-link cus-stext-106 trans-04" (click)="priceRange = [5000000,10000000]; excuteFilter(ParamsForQuery.Price)">
                               5.000.000 - 10.000.000
-                            </a>
+                            </span>
                         </li>
 
                         <li class="p-b-6">
-                            <a href="#" class="filter-link cus-stext-106 trans-04">
+                            <span class="filter-link cus-stext-106 trans-04" (click)="priceRange = [10000000,0]; excuteFilter(ParamsForQuery.Price)">
                                 10.000.000+
-                            </a>
+                            </span>
                         </li>
                     </ul>
                 </div>
@@ -124,9 +123,9 @@
                                 <i class="zmdi zmdi-circle"></i>
                             </span>
 
-                            <a href="#" class="filter-link cus-stext-106 trans-04">
+                            <span class="filter-link cus-stext-106 trans-04">
                                 Black
-                            </a>
+                            </span>
                         </li>
 
                         <li class="p-b-6">
@@ -134,9 +133,9 @@
                                 <i class="zmdi zmdi-circle"></i>
                             </span>
 
-                            <a href="#" class="filter-link cus-stext-106 trans-04 filter-link-active">
+                            <span class="filter-link cus-stext-106 trans-04 filter-link-active">
                                 Blue
-                            </a>
+                            </span>
                         </li>
 
                         <li class="p-b-6">
@@ -144,9 +143,9 @@
                                 <i class="zmdi zmdi-circle"></i>
                             </span>
 
-                            <a href="#" class="filter-link cus-stext-106 trans-04">
+                            <span class="filter-link cus-stext-106 trans-04">
                                 Grey
-                            </a>
+                            </span>
                         </li>
 
                         <li class="p-b-6">
@@ -154,9 +153,9 @@
                                 <i class="zmdi zmdi-circle"></i>
                             </span>
 
-                            <a href="#" class="filter-link cus-stext-106 trans-04">
+                            <span class="filter-link cus-stext-106 trans-04">
                                 Green
-                            </a>
+                            </span>
                         </li>
 
                         <li class="p-b-6">
@@ -164,9 +163,9 @@
                                 <i class="zmdi zmdi-circle"></i>
                             </span>
 
-                            <a href="#" class="filter-link cus-stext-106 trans-04">
+                            <span class="filter-link cus-stext-106 trans-04">
                                 Red
-                            </a>
+                            </span>
                         </li>
 
                         <li class="p-b-6">
@@ -174,9 +173,9 @@
                                 <i class="zmdi zmdi-circle-o"></i>
                             </span>
 
-                            <a href="#" class="filter-link cus-stext-106 trans-04">
+                            <span class="filter-link cus-stext-106 trans-04">
                                 White
-                            </a>
+                            </span>
                         </li>
                     </ul>
                 </div>
@@ -193,10 +192,9 @@
                     <a [routerLink]="[ '/product', product._id ]">
                         <img [src]="product.img" alt="IMG-PRODUCT">
                     </a>
-                    <a href="#"
-                        class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                    <span class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
                         Xem Nhanh
-                    </a>
+                    </span>
                 </div>
 
                 <div class="block2-txt flex-w flex-t p-t-14">
@@ -211,7 +209,7 @@
                     </div>
 
                     <div class="block2-txt-child2 flex-r p-t-3">
-                        <!-- <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+                        <!-- <a class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
                             <img class="icon-heart1 dis-block trans-04" src="../../../../assets/img/icons/icon-heart-01.png" alt="ICON">
                             <img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png"
                                 alt="ICON">

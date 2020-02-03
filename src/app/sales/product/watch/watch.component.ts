@@ -3,8 +3,9 @@ import { ProductService } from '../../../services/product.service';
 import { StateService } from '../../../services/state.service';
 import { WatchModel } from '../../models/watch.model';
 import { BaseComponent } from '../../base/base.model';
-import { ParamsToFilter } from '../../models/params-to-filter.enum';
+import { ParamsForQuery } from '../../models/params-to-filter.enum';
 import { Filter } from '../../models/filter.model';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-watch',
   templateUrl: './watch.component.html',
@@ -13,61 +14,38 @@ import { Filter } from '../../models/filter.model';
 export class WatchComponent extends BaseComponent implements OnInit {
 
   products: WatchModel[];
-  @Input() paramsToRunQuery: ParamsToFilter;
+  @Input() paramsToRunQuery: ParamsForQuery;
   @Input() isShowFilterAndSearch = true;
-  ParamsToFilter = ParamsToFilter;
+  ParamsForQuery = ParamsForQuery;
   private filter = new Filter();
+  priceRange = [];
 
   constructor(private productService: ProductService, stateService: StateService) {
     super(stateService, true);
   }
 
   ngOnInit() {
-
-    // const watchModel: WatchModel = {
-    //   additionalImg: ['../../../../assets/img/products/product-detail.png', '../../../../assets/img/products/product-detail-2.png'],
-    //   amount: 100,
-    //   bought: 20,
-    //   category: 'G-SHOCK',
-    //   codeProduct: 'GA-110-1ADR',
-    //   colour: 'Black',
-    //   date: new Date(),
-    //   // tslint:disable-next-line:max-line-length
-    //   description: 'Có thể nói đồng hồ đeo tay bây giờ không những là công cụ xem thời gian đơn thuần mà còn là món phụ kiện thời trang đẳng cấp cho người sử dụng. Trong những năm gần đây thương hiệu đồng hồ nổi tiếng Casio đến từ Nhật Bản luôn phát triển và cải tiến không ngừng để cho ra mắt những dòng sản phẩm đồng hồ thời trang cao cấp với những thiết kế mới lạ về mẫu mã và chất lượng đỉnh cao. Đồng hồ Casio GA-110-1ADR với thiết kế ngoại hình thể thao, mạnh mẽ đã mang lại ấn tượng sâu sắc cho các quý ông yêu thích thời trang muốn có một phong cách riêng cho chính mình.',
-    //   // tslint:disable-next-line:max-line-length
-    //   extraDescription: ['Chức năng đếm ngược đây là khoảng cài đặt thời gian bắt đầu đếm ngược từ 1 phút đến 24h, với chức năng này cho phép các vận động viên có thể đo thành tích chạy hay bơi lội mà không cần đến sự trợ giúp của ai.'],
-    //   extraInformation: ['Miễn phí vận chuyển trên toàn quốc', 'Bảo hành chính hãng', 'Đổi hàng miễn phí trong 7 ngày khi chưa sử dụng'],
-    //   img: '../../../../assets/img/products/dong-ho-gshock.png',
-    //   name: 'GA-110-1ADR',
-    //   price: 250000000,
-    //   trademark: 'G-SHOCK',
-    //   userFor: ['Men', 'Women']
-    // };
-
-    // this.productService.addProduct(watchModel).subscribe(() => {
-    //   console.log('done');
-    // });
     this.runQueryByParam();
   }
 
-  runQueryByParam(paramToFilter?: ParamsToFilter) {
+  runQueryByParam(paramToFilter?: ParamsForQuery) {
     const param = paramToFilter || this.paramsToRunQuery;
     switch (param) {
-      case ParamsToFilter.TopSales:
+      case ParamsForQuery.TopSales:
         this.productService.getTopSales().subscribe((response: WatchModel[]) => {
           this.products = response;
         }, (err) => {
           console.log(err);
         });
         break;
-      case ParamsToFilter.ProductsNewest:
+      case ParamsForQuery.ProductsNewest:
         this.productService.getProductsNewest().subscribe((response: WatchModel[]) => {
           this.products = response;
         }, (err) => {
           console.log(err);
         });
         break;
-      case ParamsToFilter.ProductAdvance:
+      case ParamsForQuery.ProductAdvance:
         this.productService.getProductAdvance().subscribe((response: WatchModel[]) => {
           this.products = response;
         }, (err) => {
@@ -84,28 +62,34 @@ export class WatchComponent extends BaseComponent implements OnInit {
     }
   }
 
-  buildParams(paramToFilter?: ParamsToFilter): Filter {
+  buildParamsForQuery(paramToFilter?: ParamsForQuery): Filter {
     switch (paramToFilter) {
-      case ParamsToFilter.ForMen:
-        this.filter.findByGender = ParamsToFilter.ForMen;
+      // ======= Find =======
+      // filter.find is a dynamic property which mean you can find any fields in DB ( ex: 'userFor' field )
+      case ParamsForQuery.ForMen:
+        this.filter.find.useFor = ParamsForQuery.ForMen;
         break;
-      case ParamsToFilter.ForWomen:
-        this.filter.findByGender = ParamsToFilter.ForWomen;
+      case ParamsForQuery.ForWomen:
+        this.filter.find.useFor = ParamsForQuery.ForWomen;
         break;
-      case ParamsToFilter.ForCouple:
-        this.filter.findByGender = ParamsToFilter.ForCouple;
+      case ParamsForQuery.ForCouple:
+        this.filter.find.useFor = ParamsForQuery.ForCouple;
         break;
-      case ParamsToFilter.Descending:
-        this.filter.sortByOthers = ParamsToFilter.Descending;
+      case ParamsForQuery.Price:
+        this.filter.find.price = this.priceRange;
         break;
-      case ParamsToFilter.Ascending:
-        this.filter.sortByOthers = ParamsToFilter.Ascending;
+      // ======= Sort =======
+      case ParamsForQuery.Descending:
+        this.filter.sortByOthers = ParamsForQuery.Descending;
         break;
-      case ParamsToFilter.Newest:
-        this.filter.sortByOthers = ParamsToFilter.Newest;
+      case ParamsForQuery.Ascending:
+        this.filter.sortByOthers = ParamsForQuery.Ascending;
         break;
-      case ParamsToFilter.Popular:
-        this.filter.sortByOthers = ParamsToFilter.Popular;
+      case ParamsForQuery.Newest:
+        this.filter.sortByOthers = ParamsForQuery.Newest;
+        break;
+      case ParamsForQuery.Popular:
+        this.filter.sortByOthers = ParamsForQuery.Popular;
         break;
 
       default:
@@ -116,13 +100,30 @@ export class WatchComponent extends BaseComponent implements OnInit {
     return this.filter;
   }
 
-  excuteFilter(paramToFilter?: ParamsToFilter) {
-    const filterObj = this.buildParams(paramToFilter);
+  excuteFilter(paramForQuery?: ParamsForQuery) {
+    const filterObj = this.buildParamsForQuery(paramForQuery);
 
     this.productService.getProductsByFilter(filterObj).subscribe((response: WatchModel[]) => {
-      this.products = response;
+      if (response.length === 0) {
+        Swal.fire({
+          title: 'Thông Báo',
+          text: 'Không có sản phẩm trong mục này, xin vui lòng thử lại hoặc liên hệ với chúng tôi',
+          icon: 'info',
+          showCancelButton: false,
+          confirmButtonText: 'Tắt Thông Báo',
+        });
+      } else {
+        this.products = response;
+      }
+
     }, (err) => {
-      console.log(err);
+      Swal.fire({
+        title: 'Đã xảy ra lỗi',
+        text: 'Xin kiểm tra lại đường truyền hoặc liên hệ với chúng tôi',
+        icon: 'error',
+        showCancelButton: false,
+        confirmButtonText: 'Tắt Thông Báo',
+      });
     });
 
   }
