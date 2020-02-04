@@ -7,6 +7,7 @@ import { ParamsForQuery } from '../../models/params-to-filter.enum';
 import { Filter } from '../../models/filter.model';
 import Swal from 'sweetalert2';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import * as $ from 'jquery';
 @Component({
   selector: 'app-watch',
   templateUrl: './watch.component.html',
@@ -25,6 +26,7 @@ export class WatchComponent extends BaseComponent implements OnInit {
   currentActiveShortByOther = 0;
   currentActiveShortByPrice = 0;
   currentActiveColour = [];
+  isShowClearFilter = false;
   constructor(private productService: ProductService, stateService: StateService, private ngxLoader: NgxUiLoaderService) {
     super(stateService, true);
   }
@@ -116,14 +118,15 @@ export class WatchComponent extends BaseComponent implements OnInit {
   }
 
   excuteFilter(paramForQuery?: ParamsForQuery) {
-    this.ngxLoader.startLoader('loader-01');
+    this.ngxLoader.startBackground();
+    this.isShowClearFilter = true;
     const filterObj = this.buildParamsForQuery(paramForQuery);
-    this.isEmptyFilterObject(filterObj);
+
     this.productService.getProductsByFilter(filterObj).subscribe((response: WatchModel[]) => {
       if (response.length === 0) {
         Swal.fire({
           title: 'Thông Báo',
-          text: 'Không có sản phẩm trong mục này, xin vui lòng liên hệ với chúng tôi',
+          text: 'Không có sản phẩm trong khoản mục này, xin vui lòng liên hệ với chúng tôi',
           icon: 'info',
           showCancelButton: false,
           confirmButtonText: 'Tắt Thông Báo',
@@ -140,7 +143,7 @@ export class WatchComponent extends BaseComponent implements OnInit {
         confirmButtonText: 'Tắt Thông Báo',
       });
     }, () => {
-      this.ngxLoader.stopLoader('loader-01');
+      this.ngxLoader.stopBackground();
     });
 
   }
@@ -157,8 +160,20 @@ export class WatchComponent extends BaseComponent implements OnInit {
     }
   }
 
-  isEmptyFilterObject(obj?: object) {
-    return (obj && (Object.keys(obj).length === 0));
+  clearFilter() {
+    this.isShowClearFilter = false;
+    this.filter = new Filter();
+    this.priceRange = [];
+    this.colourRange = [];
+    this.currentActiveBtn = 0;
+    this.currentActiveShortByOther = 0;
+    this.currentActiveShortByPrice = 0;
+    this.currentActiveColour = [];
+    $('.js-show-search').removeClass('show-search');
+    $('.js-show-filter').removeClass('show-filter');
+    $('.panel-search').slideUp(400);
+    $('.panel-filter').slideUp(400);
+    this.excuteFilter();
   }
 
 }

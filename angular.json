@@ -29,8 +29,8 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/assets/css/main.scss",
               "src/assets/css/util.scss",
+              "src/assets/css/main.scss",
               "src/assets/vendor/css-hamburger/hamburgers.min.css",
               "node_modules/slick-carousel/slick/slick.scss",
               "node_modules/slick-carousel/slick/slick-theme.scss",

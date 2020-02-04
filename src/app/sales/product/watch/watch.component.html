@@ -1,4 +1,4 @@
-<div class="container bg0 m-t-23 p-b-140 product" ngxUiLoaderBlurred [loaderId]="'loader-01'">
+<div class="container bg0 m-t-23 p-b-140 product">
   <div class="flex-w flex-sb-m p-b-52" *ngIf="isShowFilterAndSearch">
     <div class="flex-w flex-l-m filter-tope-group m-tb-10">
       <button class="cus-stext-301 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
@@ -25,20 +25,20 @@
       </button>
     </div>
 
-    <div class="flex-w flex-c-m m-tb-10">{{isEmptyFilterObject()}}
-      <div class="flex-c-m cus-stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4" *ngIf="isEmptyFilterObject()">
-        <i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 fas fa-times"></i>
-        Xóa Bộ Lọc
+    <div class="flex-w flex-c-m m-tb-10">
+      <div class="flex-c-m cus-stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4" *ngIf="isShowClearFilter" (click)="clearFilter()">
+        <i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 fas fa-eraser"></i>
+        Xóa Lọc
       </div>
       <div class="flex-c-m cus-stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
         <i class="icon-filter cl2 m-r-6 fs-15 trans-04 fas fa-filter"></i>
-        <i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 fas fa-times dis-none"></i>
+        <i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 cus-icon fa-times dis-none"></i>
         Filter
       </div>
 
       <div class="flex-c-m cus-stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
         <i class="icon-search cl2 m-r-6 fs-15 trans-04 fas fa-search"></i>
-        <i class="icon-close-search cl2 m-r-6 fs-15 trans-04 fas fa-times dis-none"></i>
+        <i class="icon-close-search cl2 m-r-6 fs-15 trans-04 cus-icon fa-times dis-none"></i>
         Search
       </div>
     </div>
@@ -152,7 +152,7 @@
                 <i class="fas fa-circle"></i>
               </span>
 
-              <span class="filter-link cus-stext-106 trans-04"
+              <span class="filter-link cus-stext-106 trans-04 filter-link-active"
                 (click)="setColourRange('Black'); excuteFilter(ParamsForQuery.Colour)">
                 Black
               </span>
@@ -163,7 +163,7 @@
                 <i class="fas fa-circle"></i>
               </span>
 
-              <span class="filter-link cus-stext-106 trans-04 filter-link-active"
+              <span class="filter-link cus-stext-106 trans-04"
                 (click)="setColourRange('Blue'); excuteFilter(ParamsForQuery.Colour)">
                 Blue
               </span>
@@ -254,5 +254,4 @@
       </div>
     </div>
   </div>
-  <ngx-ui-loader [loaderId]="'loader-01'"></ngx-ui-loader>
 </div>
