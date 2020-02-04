@@ -82,10 +82,8 @@ export class ProductRoute {
       }
       filterModel.exec((error, data) => {
         if (error) {
-          console.log('loi~');
           return next(error.message);
         }
-        console.log(data);
         res.status(200).json(data);
       });
     });
@@ -119,10 +117,6 @@ export class ProductRoute {
         default:
           break;
       }
-    }
-    if (filterParams.byColor) {
-      // $all use for search multi value
-      filterObj.find = { colour: { $all: filterParams.byColor } };
     }
     return filterObj;
   }

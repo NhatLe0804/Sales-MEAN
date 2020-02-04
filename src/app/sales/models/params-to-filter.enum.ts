@@ -10,7 +10,8 @@ export enum ParamsForQuery {
   Descending = 'Descending',
   Newest = 'Newest',
   Popular = 'Popular',
-  Price = 'Price'
+  Price = 'Price',
+  Colour = 'Colour'
 }
 
 export enum Color {

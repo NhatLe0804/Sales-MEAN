@@ -1,5 +1,6 @@
 .product {
   min-height: 100vh;
+  position: relative;
   .cus-mtext-102 {
     font-family: Arial, sans-serif;
     font-weight: 700;
@@ -20,7 +21,7 @@
     text-transform: uppercase;
   }
 
-  .filter-link { 
+  .filter-link {
     cursor: pointer;
   }
 }
