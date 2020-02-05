@@ -20,7 +20,6 @@ export class WatchComponent extends BaseComponent implements OnInit {
   @Input() isShowFilterAndSearch = true;
   ParamsForQuery = ParamsForQuery;
   filter = new Filter();
-  priceRange = [];
   colourRange = [];
   currentActiveBtn = 0;
   currentActiveShortByOther = 0;
@@ -69,7 +68,7 @@ export class WatchComponent extends BaseComponent implements OnInit {
     }
   }
 
-  buildParamsForQuery(paramToFilter?: ParamsForQuery): Filter {
+  buildParamsForQuery(paramOptions?: any, paramToFilter?: ParamsForQuery): Filter {
     switch (paramToFilter) {
       // ======= Find =======
       // filter.find is a dynamic property which mean you can find any fields in DB ( ex: 'userFor' field )
@@ -83,16 +82,17 @@ export class WatchComponent extends BaseComponent implements OnInit {
         this.filter.find.useFor = ParamsForQuery.ForCouple;
         break;
       case ParamsForQuery.Price:
-        if (this.priceRange[0] !== 0 && this.priceRange[1] === 0) {
-          this.priceRange[1] = 500000000;
+        if (paramOptions[0] !== 0 && paramOptions[1] === 0) {
+          paramOptions[1] = 500000000;
         }
-        if (this.priceRange.length !== 0) {
-          this.filter.find.price = { $gte: this.priceRange[0], $lte: this.priceRange[1] };
+        if (paramOptions.length !== 0) {
+          this.filter.find.price = { $gte: paramOptions[0], $lte: paramOptions[1] };
         } else {
           delete this.filter.find.price;
         }
         break;
       case ParamsForQuery.Colour:
+        this.setColourRange(paramOptions);
         this.filter.find.colour = { $in: this.colourRange };
         break;
       // ======= Sort =======
@@ -117,10 +117,12 @@ export class WatchComponent extends BaseComponent implements OnInit {
     return this.filter;
   }
 
-  excuteFilter(paramForQuery?: ParamsForQuery) {
+  // paramOptions is depened on paramForQuery
+  // which mean if paramForQuery use for price then paramOptions also use for that supposed
+  excuteFilter(paramOptions?: any, paramForQuery?: ParamsForQuery) {
     this.ngxLoader.startBackground();
     this.isShowClearFilter = true;
-    const filterObj = this.buildParamsForQuery(paramForQuery);
+    const filterObj = this.buildParamsForQuery(paramOptions, paramForQuery);
 
     this.productService.getProductsByFilter(filterObj).subscribe((response: WatchModel[]) => {
       if (response.length === 0) {
@@ -163,7 +165,6 @@ export class WatchComponent extends BaseComponent implements OnInit {
   clearFilter() {
     this.isShowClearFilter = false;
     this.filter = new Filter();
-    this.priceRange = [];
     this.colourRange = [];
     this.currentActiveBtn = 0;
     this.currentActiveShortByOther = 0;
@@ -174,6 +175,37 @@ export class WatchComponent extends BaseComponent implements OnInit {
     $('.panel-search').slideUp(400);
     $('.panel-filter').slideUp(400);
     this.excuteFilter();
+  }
+
+  isActiveColourInRange(colour): boolean {
+    return this.colourRange.filter((item, index) => this.colourRange.indexOf(item) !== index).length > 0;
+  }
+
+  searchText(text: string) {
+    this.ngxLoader.startBackground();
+    this.productService.getProductsBySearch(text).subscribe((response: WatchModel[]) => {
+      if (response.length === 0) {
+        Swal.fire({
+          title: 'Thông Báo',
+          text: 'Không có sản phẩm trong khoản mục này, xin vui lòng liên hệ với chúng tôi',
+          icon: 'info',
+          showCancelButton: false,
+          confirmButtonText: 'Tắt Thông Báo',
+        });
+      } else {
+        this.products = response;
+      }
+    }, (err) => {
+      Swal.fire({
+        title: 'Đã xảy ra lỗi',
+        text: 'Xin kiểm tra lại đường truyền hoặc liên hệ với chúng tôi',
+        icon: 'error',
+        showCancelButton: false,
+        confirmButtonText: 'Tắt Thông Báo',
+      });
+    }, () => {
+      this.ngxLoader.stopBackground();
+    });
   }
 
 }

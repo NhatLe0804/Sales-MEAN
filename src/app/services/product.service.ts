@@ -40,4 +40,8 @@ export class ProductService {
     return this.httpClient.post<WatchModel[]>('/api/filter', filter);
   }
 
+  getProductsBySearch(searchText: string): Observable<WatchModel[]> {
+    return this.httpClient.post<WatchModel[]>('/api/search', searchText);
+  }
+
 }

@@ -70,13 +70,11 @@ export class ProductRoute {
       });
     });
 
-    //
+    // ========= Product filter
     app.route('/api/filter').post((req: Request, res: Response, next: NextFunction) => {
 
       const queryDynamic = this.buildQueryDynamic(req.body);
-      console.log(queryDynamic);
       const filterModel = Product.find(queryDynamic.find);
-
       if (queryDynamic.sort) {
         filterModel.sort(queryDynamic.sort);
       }
@@ -86,6 +84,21 @@ export class ProductRoute {
         }
         res.status(200).json(data);
       });
+    });
+
+    app.route('/api/search').post((req: Request, res: Response, next: NextFunction) => {
+      if (this.isValidText(req.body)) {
+        Product.aggregate({ $match: { name: { $regex: req.body } } }).exec((error, data) => {
+          if (error) {
+            return next(error.message);
+          }
+          res.status(200).json(data);
+        });
+      } else {
+        res.status(400).json('Search Text is not valid');
+      }
+
+
     });
   }
 
@@ -119,6 +132,10 @@ export class ProductRoute {
       }
     }
     return filterObj;
+  }
+
+  isValidText(str) {
+    return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(str);
   }
 }
 

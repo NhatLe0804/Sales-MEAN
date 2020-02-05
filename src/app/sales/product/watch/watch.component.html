@@ -49,7 +49,7 @@
           <i class="fas fa-search"></i>
         </button>
 
-        <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search-product" placeholder="Search">
+        <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search-product" placeholder="Search" #searchText (keyup.enter)="searchText(searchText.value)">
       </div>
     </div>
     <div class="dis-none panel-filter w-full p-t-10">
@@ -103,14 +103,14 @@
             <li class="p-b-6">
               <span class="filter-link cus-stext-106 trans-04 filter-link-active"
                 [ngClass]="{'filter-link-active': currentActiveShortByPrice === 0}"
-                (click)="priceRange = []; excuteFilter(ParamsForQuery.Price); currentActiveShortByPrice = 0;">
+                (click)="excuteFilter([],ParamsForQuery.Price); currentActiveShortByPrice = 0;">
                 Tất cả
               </span>
             </li>
             <li class="p-b-6">
               <span class="filter-link cus-stext-106 trans-04"
                 [ngClass]="{'filter-link-active': currentActiveShortByPrice === 1}"
-                (click)="priceRange = [0,3000000]; excuteFilter(ParamsForQuery.Price); currentActiveShortByPrice = 1;">
+                (click)="excuteFilter([0,3000000],ParamsForQuery.Price); currentActiveShortByPrice = 1;">
                 0 - 3.000.000
               </span>
             </li>
@@ -118,7 +118,7 @@
             <li class="p-b-6">
               <span class="filter-link cus-stext-106 trans-04"
                 [ngClass]="{'filter-link-active': currentActiveShortByPrice === 2}"
-                (click)="priceRange = [3000000,5000000]; excuteFilter(ParamsForQuery.Price); currentActiveShortByPrice = 2;">
+                (click)="excuteFilter([3000000,5000000],ParamsForQuery.Price); currentActiveShortByPrice = 2;">
                 3.000.000 - 5.000.000
               </span>
             </li>
@@ -126,7 +126,7 @@
             <li class="p-b-6">
               <span class="filter-link cus-stext-106 trans-04"
                 [ngClass]="{'filter-link-active': currentActiveShortByPrice === 3}"
-                (click)="priceRange = [5000000,10000000]; excuteFilter(ParamsForQuery.Price); currentActiveShortByPrice = 3;">
+                (click)="excuteFilter([5000000,10000000],ParamsForQuery.Price); currentActiveShortByPrice = 3;">
                 5.000.000 - 10.000.000
               </span>
             </li>
@@ -134,7 +134,7 @@
             <li class="p-b-6">
               <span class="filter-link cus-stext-106 trans-04"
                 [ngClass]="{'filter-link-active': currentActiveShortByPrice === 4}"
-                (click)="priceRange = [10000000,0]; excuteFilter(ParamsForQuery.Price); currentActiveShortByPrice = 4;">
+                (click)="excuteFilter([10000000,0],ParamsForQuery.Price); currentActiveShortByPrice = 4;">
                 10.000.000+
               </span>
             </li>
@@ -152,8 +152,8 @@
                 <i class="fas fa-circle"></i>
               </span>
 
-              <span class="filter-link cus-stext-106 trans-04 filter-link-active"
-                (click)="setColourRange('Black'); excuteFilter(ParamsForQuery.Colour)">
+              <span class="filter-link cus-stext-106 trans-04" [ngClass]="{'filter-link-active': isActiveColourInRange('Black')}"
+                (click)="excuteFilter('Black',ParamsForQuery.Colour)">
                 Black
               </span>
             </li>
@@ -163,8 +163,8 @@
                 <i class="fas fa-circle"></i>
               </span>
 
-              <span class="filter-link cus-stext-106 trans-04"
-                (click)="setColourRange('Blue'); excuteFilter(ParamsForQuery.Colour)">
+              <span class="filter-link cus-stext-106 trans-04" [ngClass]="{'filter-link-active': isActiveColourInRange('Blue')}"
+                (click)="excuteFilter('Blue',ParamsForQuery.Colour)">
                 Blue
               </span>
             </li>
@@ -174,8 +174,8 @@
                 <i class="fas fa-circle"></i>
               </span>
 
-              <span class="filter-link cus-stext-106 trans-04"
-                (click)="setColourRange('Grey'); excuteFilter(ParamsForQuery.Colour)">
+              <span class="filter-link cus-stext-106 trans-04" [ngClass]="{'filter-link-active': isActiveColourInRange('Grey')}"
+                (click)="excuteFilter('Grey',ParamsForQuery.Colour)">
                 Grey
               </span>
             </li>
@@ -185,8 +185,8 @@
                 <i class="fas fa-circle"></i>
               </span>
 
-              <span class="filter-link cus-stext-106 trans-04"
-                (click)="setColourRange('Green'); excuteFilter(ParamsForQuery.Colour)">
+              <span class="filter-link cus-stext-106 trans-04" [ngClass]="{'filter-link-active': isActiveColourInRange('Green')}"
+                (click)="excuteFilter('Green',ParamsForQuery.Colour)">
                 Green
               </span>
             </li>
@@ -196,8 +196,8 @@
                 <i class="fas fa-circle"></i>
               </span>
 
-              <span class="filter-link cus-stext-106 trans-04"
-                (click)="setColourRange('Red'); excuteFilter(ParamsForQuery.Colour)">
+              <span class="filter-link cus-stext-106 trans-04" [ngClass]="{'filter-link-active': isActiveColourInRange('Red')}"
+                (click)="excuteFilter('Red',ParamsForQuery.Colour)">
                 Red
               </span>
             </li>
@@ -207,8 +207,8 @@
                 <i class="fas fa-circle"></i>
               </span>
 
-              <span class="filter-link cus-stext-106 trans-04"
-                (click)="setColourRange('White'); excuteFilter(ParamsForQuery.Colour)">
+              <span class="filter-link cus-stext-106 trans-04" [ngClass]="{'filter-link-active': isActiveColourInRange('White')}"
+                (click)="excuteFilter('White',ParamsForQuery.Colour)">
                 White
               </span>
             </li>
