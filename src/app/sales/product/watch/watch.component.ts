@@ -93,7 +93,11 @@ export class WatchComponent extends BaseComponent implements OnInit {
         break;
       case ParamsForQuery.Colour:
         this.setColourRange(paramOptions);
-        this.filter.find.colour = { $in: this.colourRange };
+        if (this.colourRange.length !== 0) {
+          this.filter.find.colour = { $in: this.colourRange };
+        } else {
+          delete this.filter.find.colour;
+        }
         break;
       // ======= Sort =======
       case ParamsForQuery.Descending:
@@ -144,6 +148,7 @@ export class WatchComponent extends BaseComponent implements OnInit {
         showCancelButton: false,
         confirmButtonText: 'Tắt Thông Báo',
       });
+      this.ngxLoader.stopBackground();
     }, () => {
       this.ngxLoader.stopBackground();
     });
@@ -163,49 +168,22 @@ export class WatchComponent extends BaseComponent implements OnInit {
   }
 
   clearFilter() {
-    this.isShowClearFilter = false;
     this.filter = new Filter();
     this.colourRange = [];
     this.currentActiveBtn = 0;
     this.currentActiveShortByOther = 0;
     this.currentActiveShortByPrice = 0;
     this.currentActiveColour = [];
-    $('.js-show-search').removeClass('show-search');
     $('.js-show-filter').removeClass('show-filter');
-    $('.panel-search').slideUp(400);
     $('.panel-filter').slideUp(400);
     this.excuteFilter();
+    this.isShowClearFilter = false;
   }
 
   isActiveColourInRange(colour): boolean {
     return this.colourRange.filter((item, index) => this.colourRange.indexOf(item) !== index).length > 0;
   }
 
-  searchText(text: string) {
-    this.ngxLoader.startBackground();
-    this.productService.getProductsBySearch(text).subscribe((response: WatchModel[]) => {
-      if (response.length === 0) {
-        Swal.fire({
-          title: 'Thông Báo',
-          text: 'Không có sản phẩm trong khoản mục này, xin vui lòng liên hệ với chúng tôi',
-          icon: 'info',
-          showCancelButton: false,
-          confirmButtonText: 'Tắt Thông Báo',
-        });
-      } else {
-        this.products = response;
-      }
-    }, (err) => {
-      Swal.fire({
-        title: 'Đã xảy ra lỗi',
-        text: 'Xin kiểm tra lại đường truyền hoặc liên hệ với chúng tôi',
-        icon: 'error',
-        showCancelButton: false,
-        confirmButtonText: 'Tắt Thông Báo',
-      });
-    }, () => {
-      this.ngxLoader.stopBackground();
-    });
-  }
+
 
 }

@@ -97,38 +97,12 @@ let checkExistMenu = setInterval(function () {
     }
 }, 300);
 
-
-
-
-
-
-
-
-/*==================================================================
-[ Show / hide modal search ]*/
-
-
-$('.js-show-modal-search').on('click', function () {
-    $('.modal-search-header').addClass('show-modal-search');
-    $(this).css('opacity', '0');
-});
-
-$('.js-hide-modal-search').on('click', function () {
-    $('.modal-search-header').removeClass('show-modal-search');
-    $('.js-show-modal-search').css('opacity', '1');
-});
-
-$('.container-search-header').on('click', function (e) {
-    e.stopPropagation();
-});
-
-
 /*==================================================================
 [ Filter / Search product ]*/
 
 let checkExistFilterAndSearch = setInterval(function () {
 
-    if ($('.js-show-filter').length > 0 && $('.js-show-search').length > 0) {
+    if ($('.js-show-filter').length > 0 ) {
         $('.js-show-filter').on('click', function () {
             $(this).toggleClass('show-filter');
             $('.panel-filter').slideToggle(400);

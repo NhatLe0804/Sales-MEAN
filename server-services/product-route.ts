@@ -87,8 +87,8 @@ export class ProductRoute {
     });
 
     app.route('/api/search').post((req: Request, res: Response, next: NextFunction) => {
-      if (this.isValidText(req.body)) {
-        Product.aggregate({ $match: { name: { $regex: req.body } } }).exec((error, data) => {
+      if (this.isValidText(req.body.searchText )) {
+        Product.aggregate([{ $match: { name: { $regex: req.body.searchText } } }]).exec((error, data) => {
           if (error) {
             return next(error.message);
           }
